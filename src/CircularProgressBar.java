@@ -59,14 +59,14 @@ class CircularProgressBar extends BasicProgressBarUI
 		}
 	}
 	
-	public JProgressBar makeProgressBar()
+	public JProgressBar makeProgressBar(Color color)
 	{
 		JProgressBar progressBar = new JProgressBar();
         // use JProgressBar#setUI(...) method
 		progressBar.setUI(new CircularProgressBar());
 		progressBar.setStringPainted(true);
 		progressBar.setFont(progressBar.getFont().deriveFont(24f));
-		progressBar.setForeground(Color.ORANGE);
+		progressBar.setForeground(color);
 		progressBar.setOpaque(false);
 		
 		return progressBar;

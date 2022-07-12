@@ -30,7 +30,6 @@ public class LeftSide {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
 		panel.setOpaque(false);
-		//panel.setBackground(new Color(0,0,0,0));
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -38,7 +37,6 @@ public class LeftSide {
 		pswLabel.setHorizontalAlignment(JTextField.RIGHT);
 		pswLabel.setForeground(Color.WHITE);
 		pswLabel.setBorder(new EmptyBorder(0, 0, 20, 0));
-		//panel.setBackground(new Color(0,0,0,0));
 
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -48,7 +46,7 @@ public class LeftSide {
 		
 		JTextField pswField = new JTextField(30);
 		pswField.setOpaque(false);
-		//pswField.setBackground(new Color(0,0,0,0));
+
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
@@ -67,7 +65,6 @@ public class LeftSide {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
 		panel.setOpaque(false);
-		//panel.setBackground(new Color(0,0,0,0));
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -122,7 +119,6 @@ public class LeftSide {
 	private JPanel encryptPanel()
 	{
 		JPanel panel1 = new JPanel();
-		//panel1.setBackground(new Color(0,0,0,0));
 		panel1.setOpaque(false);
 		panel1.setLayout(new GridBagLayout());
 		
@@ -164,7 +160,6 @@ public class LeftSide {
 	private JPanel decryptPanel()
 	{
 		JPanel panel2 = new JPanel();
-		//panel2.setBackground(new Color(0,0,0,0));
 		panel2.setOpaque(false);
 		panel2.setLayout(new GridBagLayout());
 		
@@ -207,64 +202,7 @@ public class LeftSide {
 	{
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
-		//panel.setBackground(new Color(0,0,0,0));
 		panel.setOpaque(false);
-
-		/*JPanel panel1 = new JPanel();
-		panel1.setBackground(new Color(0,0,0,0));
-		panel1.setLayout(new GridBagLayout());
-		
-		JButton button1 = null;
-		try {
-			button1 = new JButton(new ImageIcon(((new ImageIcon("Icons/lock.png")).getImage()).getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH)));
-		} catch (Exception ex) {
-			System.out.println("Aggiunta immagine ai bottoni fallita "+ex);
-		}
-		button1.setBackground(new Color(0,0,0));
-		//button1.setBorder(new EmptyBorder(0, 0, 0, 20));
-		//button1.setBorder(BorderFactory.createLineBorder(Color.CYAN,1));
-		JLabel encryption = new JLabel("Encryption");
-		encryption.setForeground(Color.WHITE);
-		
-		gbc.weighty = 0.1;
-		gbc.weightx = 0.5;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		panel1.add(button1, gbc);
-		gbc.weighty = 0.1;
-		gbc.weightx = 0.5;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		panel1.add(encryption, gbc);
-		panel1.setBorder(new EmptyBorder(0, 0, 0, 20));*/
-
-		/*JPanel panel2 = new JPanel();
-		panel2.setBackground(new Color(0,0,0,0));
-		panel2.setLayout(new GridBagLayout());
-		
-		JButton button2 = null;
-		try {
-			button2 = new JButton(new ImageIcon(((new ImageIcon("Icons/decryption.jpg")).getImage()).getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH)));
-		} catch (Exception ex) {
-		  System.out.println(ex);
-		}
-		button2.setBackground(new Color(0,0,0));
-		//button2.setBorder(new EmptyBorder(0, 20, 0, 0));
-		//button2.setBorder(BorderFactory.createLineBorder(Color.CYAN,1));
-		JLabel decryption = new JLabel("Decryption");
-		decryption.setForeground(Color.WHITE);
-		
-		gbc.weighty = 0.1;
-		gbc.weightx = 0.5;
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		panel2.add(button2, gbc);
-		gbc.weighty = 0.1;
-		gbc.weightx = 0.5;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		panel2.add(decryption, gbc);
-		panel2.setBorder(new EmptyBorder(0, 20, 0, 20));*/
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -294,7 +232,6 @@ public class LeftSide {
 	{
 		JPanel panel = new JPanel();
 		panel.setOpaque(false);
-		//panel.setBackground(new Color(0,0,0,0));
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -312,7 +249,6 @@ public class LeftSide {
 	private void fifthRow(JPanel leftPanel)
 	{
 		JPanel panel = new JPanel();
-		//panel.setBackground(new Color(0,0,0,0));
 		panel.setOpaque(false);
 		
 		pathNameField = new JTextArea();
@@ -384,9 +320,7 @@ public class LeftSide {
 	private LeftSide(JPanel leftPanel)
 	{
 		try {
-	        FlatDarkLaf.setup();
-
-		    //UIManager.setLookAndFeel( new FlatDarkLaf() );
+		    UIManager.setLookAndFeel( new FlatDarkLaf() );
 		} catch( Exception ex ) {
 		    System.err.println( "Failed to initialize LaF" );
 		}
@@ -394,8 +328,7 @@ public class LeftSide {
 		leftPanel.setLayout(new GridBagLayout());
         gbc.anchor = GridBagConstraints.CENTER;
 
-        leftPanel.setOpaque(false);//transparent background alternative
-        //leftPanel.setBackground(new Color(0, 0, 0, 0));//transparent background
+        leftPanel.setOpaque(false);
         //leftPanel.setBackground(Color.BLACK);
 
         firstRow(leftPanel);

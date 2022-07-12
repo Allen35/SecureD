@@ -40,17 +40,8 @@ public class RightSide {
 		gbc.gridy = 0;
 		panel.add(jlabel, gbc);
 		
-		progressZip = new CircularProgressBar().makeProgressBar();
-		
-		/*progressZip = new JProgressBar();
-        // use JProgressBar#setUI(...) method
-		progressZip.setUI(new CircularProgressBar());
-		progressZip.setStringPainted(true);
-		progressZip.setFont(progressZip.getFont().deriveFont(24f));
-		progressZip.setForeground(Color.ORANGE);*/
+		progressZip = new CircularProgressBar().makeProgressBar(Color.CYAN);
 		progressZip.setOpaque(false);
-     	//int in = Integer.parseInt(nameOfTextField.getValue);   
-		progressZip.setValue(0);    
      	
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -63,13 +54,6 @@ public class RightSide {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
      	rightPanel.add(panel, gbc);
-        /*new Thread()
-        {
-        	public void run()
-        	{
-        		fill();        	        		
-        	}
-        }.start();*/
 	}
 
 	public void circPBarCrypto(JPanel rightPanel)
@@ -83,7 +67,6 @@ public class RightSide {
 		JLabel jlabel = new JLabel("Avanzamento cifratura:");
 		jlabel.setForeground(Color.CYAN);
 		jlabel.setBorder(new EmptyBorder(20, 0, 10, 0));
-		//panel.setBackground(new Color(0,0,0,0));
 
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -91,17 +74,7 @@ public class RightSide {
 		gbc.gridy = 0;
 		panel.add(jlabel, gbc);
 		
-		progressCrypto = new CircularProgressBar().makeProgressBar();
-		/*progressCrypto = new JProgressBar();
-        // use JProgressBar#setUI(...) method
-        progressCrypto.setUI(new CircularProgressBar());
-        progressCrypto.setStringPainted(true);
-        progressCrypto.setFont(progressCrypto.getFont().deriveFont(24f));
-        progressCrypto.setForeground(Color.ORANGE);*/
-        progressCrypto.setOpaque(false);
-     
-     	//int in = Integer.parseInt(nameOfTextField.getValue);   
-        // progressCrypto.setValue(50);    
+		progressCrypto = new CircularProgressBar().makeProgressBar(Color.CYAN);
      	
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -114,33 +87,7 @@ public class RightSide {
 		gbc.gridx = 0;
 		gbc.gridy = 1;
      	rightPanel.add(panel, gbc);
-        /*new Thread()
-        {
-        	public void run()
-        	{
-        		fill();        	        		
-        	}
-        }.start();*/
 	}
-	
-    public void fill()
-    {
-        int i = 0;
-        try {
-            while (i <= 100) 
-            {
-                // fill the menu bar
-            	progressZip.setValue(i + 10);
-                // delay the thread
-                Thread.sleep(100);
-                //increase value
-                i += 10;
-            }
-        }
-        catch (Exception e) {
-        	e.printStackTrace();
-        }
-    }
 	
 	private RightSide(JPanel rightPanel)
 	{
@@ -148,9 +95,6 @@ public class RightSide {
 
 		rightPanel.setLayout(new GridBagLayout());
 		rightPanel.setOpaque(false);
-		//rightPanel.setBackground(new Color(0,0,0,0));
-        //rightPanel.setBackground(Color.BLACK);
-
         
 		circPBarZip(rightPanel);
 		
