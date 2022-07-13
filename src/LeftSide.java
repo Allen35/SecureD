@@ -16,6 +16,7 @@ public class LeftSide {
 	GridBagConstraints gbc = new GridBagConstraints();
 	
 	JTextArea pathNameField = null;
+	JTextField pswField = null, cfrmField = null;
 	
 	boolean doEncrypt;
 	String pathName;
@@ -44,8 +45,11 @@ public class LeftSide {
 		gbc.gridy = 0;
 		panel.add(pswLabel, gbc);
 		
-		JTextField pswField = new JTextField(30);
+		pswField = new JTextField(30);
 		pswField.setOpaque(false);
+		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
+		pswField.setText("password9");
+
 
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -78,7 +82,12 @@ public class LeftSide {
 		gbc.gridy = 0;		
 		panel.add(cfrmLabel, gbc);
 		
-		JTextField cfrmField = new JTextField(30);
+		cfrmField = new JTextField(30);
+		cfrmField.setOpaque(false);
+		cfrmField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
+		cfrmField.setText("password91");
+
+
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
@@ -282,16 +291,24 @@ public class LeftSide {
 	}
 	
 	private void executeButtonPressed()
-	{		
-		rightInstance.resetPbars();
-		
-		if(doEncrypt)
+	{	
+		PasswordChecker pswCk = new PasswordChecker();
+		if(pswCk.check(pswField.getText(), cfrmField.getText()))//if psw follow specification continue otherwise show a pop-up with errorss
 		{
-			EncryptMain.Instance.starter(pathName);			
+			rightInstance.resetPbars();
+			
+			if(doEncrypt)
+			{
+				EncryptMain.Instance.starter(pathName);			
+			}
+			else
+			{
+				DecryptMain.Instance.starter(pathName);			
+			}
 		}
 		else
 		{
-			DecryptMain.Instance.starter(pathName);			
+			ErrorPopUp.Instance.showPopUp("Password scorretta, controlla i suggerimenti!");
 		}
 	}
 	

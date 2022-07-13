@@ -4,9 +4,11 @@ import javax.swing.*;
 
 public class Main {
 	
-	public static void main(String[] args) throws Exception
-	{	
-        JFrame jframe = new JFrame();
+	private static JFrame jframe = null;
+	
+	private static void setUpUI()
+	{
+        jframe = new JFrame();
 
         jframe.getContentPane().setBackground(Color.BLACK);
         jframe.setTitle("Title");
@@ -29,5 +31,11 @@ public class Main {
         jframe.setSize(1400, 700);
         jframe.setVisible(true);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) throws Exception
+	{	
+		setUpUI();
+        ErrorPopUp.Instance.setMainFrame(jframe);
 	}
 }
