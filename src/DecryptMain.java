@@ -10,7 +10,7 @@ public enum DecryptMain {
 	private static String INPUT_PATH = "", OUTPUT_PATH = ""; 
 	public static boolean firstTime = true, decrypt = true, unzip = true;
 	
-    private int buffer_size = 2048*2;
+    private final int buffer_size = EncryptMain.Instance.buffer_size;
     
     private String secretKey = "boooooooooom!!!!";
     

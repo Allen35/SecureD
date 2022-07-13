@@ -43,8 +43,6 @@ public class CryptoUtils {
             raf.read(b);
             String s = new String(b);
             fileSize = s.substring(s.lastIndexOf("(") + 1, s.lastIndexOf(")"));
-            
-            raf.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,10 +84,8 @@ public class CryptoUtils {
             raf.read(parametersByte);
             raf.close();
 
+            //System.out.println(new String(parametersByte));
             placeHolder = StringUtils.substringsBetween(new String(parametersByte), "(", ")");
-            
-            System.out.println(new String(parametersByte));
-            
             parameters = Arrays.copyOfRange(placeHolder, placeHolder.length - 4, placeHolder.length);
             if(unclosedParentesis(parameters[0]))
             {

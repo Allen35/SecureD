@@ -10,7 +10,7 @@ public enum EncryptMain {
 	private static String INPUT_FILE_PATH = "", INPUT_ZIP_PATH = ""; 
 	public static boolean firstTime = true, encrypt = true, isFile = true;
 	
-    private int buffer_size = 2048*2;
+    protected final int buffer_size = (int) (2048*4);
     private int thread_num = 8;
     
     private String secretKey = "boooooooooom!!!!";
@@ -22,25 +22,6 @@ public enum EncryptMain {
 		else
 			this.pBar2 = pBar;
 	}
-	
-    public void fill()
-    {
-        int i = 0;
-        try {
-            while (i <= 100) 
-            {
-                // fill the menu bar
-            	pBar1.setValue(i + 10);
-                // delay the thread
-                Thread.sleep(700);
-                //increase value
-                i += 10;
-            }
-        }
-        catch (Exception e) {
-        	e.printStackTrace();
-        }
-    }
     
 	public void setPBar1(JProgressBar pBar)
 	{
@@ -48,14 +29,6 @@ public enum EncryptMain {
 			return;
 		else
 			this.pBar1 = pBar;
-		
-        /*new Thread()
-        {
-        	public void run()
-        	{
-        		fill();        	        		
-        	}
-        }.start();*/
 	}
 	
 	public void starter(String INPUT_FILE)

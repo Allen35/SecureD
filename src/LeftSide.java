@@ -48,7 +48,7 @@ public class LeftSide {
 		pswField = new JTextField(30);
 		pswField.setOpaque(false);
 		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
-		pswField.setText("password9");
+		pswField.setText("password91");
 
 
 		gbc.weighty = 0.1;
