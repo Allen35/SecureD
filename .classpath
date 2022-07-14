@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/flatlaf-2.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/jna-5.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/jna-platform-5.11.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
