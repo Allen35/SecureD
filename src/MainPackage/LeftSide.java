@@ -102,22 +102,8 @@ public class LeftSide {
 		leftPanel.add(panel, gbc);
 	}
 	
-	private void encryptButtonPressed()
-	{
-		doEncrypt = true;
-		
-		JFileChooserAParams fileExplorer = new JFileChooserAParams(800, 500, "File Explorer");
-		fileExplorer.showFileExplorer();
-		System.out.println("Nome elemento: "+fileExplorer.obtainElementName());
-		
-		pathName = fileExplorer.obtainElementName();
-		pathNameField.setText(pathName);
-	}
-	
-	private void decryptButtonPressed()
-	{
-		doEncrypt = false;
-		
+	private void openFileExplorer()
+	{		
 		JFileChooserAParams fileExplorer = new JFileChooserAParams(800, 500, "File Explorer");
 		fileExplorer.showFileExplorer();
 		System.out.println("Nome elemento: "+fileExplorer.obtainElementName());
@@ -143,7 +129,8 @@ public class LeftSide {
 				{
 					public void actionPerformed(ActionEvent e)
 					{
-						encryptButtonPressed();
+						doEncrypt = true;
+						openFileExplorer();
 					}
 				}
 			);
@@ -184,7 +171,8 @@ public class LeftSide {
 				{
 					public void actionPerformed(ActionEvent e)
 					{
-						decryptButtonPressed();
+						doEncrypt = false;
+						openFileExplorer();
 					}
 				}
 			);
@@ -300,11 +288,11 @@ public class LeftSide {
 			
 			if(doEncrypt)
 			{
-				EncryptMain.Instance.starter(pathName);			
+				EncryptMain.Instance.starter(pathName, pswField.getText());
 			}
 			else
 			{
-				DecryptMain.Instance.starter(pathName);			
+				DecryptMain.Instance.starter(pathName, pswField.getText());
 			}
 		}
 		else

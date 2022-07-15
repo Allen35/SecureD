@@ -32,10 +32,11 @@ public enum EncryptMain {
 			this.pBar1 = pBar;
 	}
 	
-	public void starter(String INPUT_FILE)
+	public void starter(String INPUT_FILE, String password)
 	{
 		INPUT_FILE_PATH = INPUT_FILE;
-		
+		secretKey = password;
+
 		EncryptDriver();
 	}
 

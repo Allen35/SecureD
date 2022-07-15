@@ -13,7 +13,7 @@ public enum DecryptMain {
 	
     private final int buffer_size = EncryptMain.Instance.buffer_size;
     
-    private String secretKey = "boooooooooom!!!!";
+    private String secretKey = "";
     
 	public void setPBar2(JProgressBar pBar)
 	{
@@ -31,9 +31,10 @@ public enum DecryptMain {
 			this.pBar1 = pBar;
 	}
 	
-	public void starter(String INPUT_FILE)
+	public void starter(String INPUT_FILE, String password)
 	{
 		INPUT_PATH = INPUT_FILE;
+		secretKey = password;
 		
 		DecryptDriver();
 	}
