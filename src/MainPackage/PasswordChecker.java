@@ -36,7 +36,7 @@ public class PasswordChecker {
 	{
 		boolean numbers = false, letters = false;
 		
-		if(psw1.length() == psw2.length() && psw1.equals(psw2) && psw1.length() >= 8)//if both psw are same length, if length of psw in greater than 8 and if both psw are equal
+		if(psw1.length() == psw2.length() && psw1.equals(psw2) && psw1.length() >= 8 && psw1.length() < 65)//if both psw are same length, if length of psw in greater than 8 and if both psw are equal
 		{
 			for(int i = 0; i < psw1.length(); i++)//check if inside psw there are atleast a letter and a number
 			{
@@ -54,7 +54,7 @@ public class PasswordChecker {
 		}
 		else
 		{
-			System.out.println("Psw Length / unequal psw / insufficient length");
+			System.out.println("Psw Length / unequal psw / insufficient length / excessive length");
 			return false;			
 		}
 	}

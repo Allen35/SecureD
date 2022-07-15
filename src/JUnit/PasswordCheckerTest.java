@@ -42,6 +42,20 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
+		 * case password excessive length
+		 */
+		String psw1 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword", psw2 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword";
+		boolean result = pswCheck.check(psw1, psw2);
+		
+		assertEquals(false, result);
+	}
+	
+	@Test
+	void testCheck4()
+	{
+		PasswordChecker pswCheck = new PasswordChecker();
+
+		/***
 		 * case password without numbers
 		 */
 		String psw1 = "password", psw2 = "password";
@@ -51,7 +65,7 @@ class PasswordCheckerTest {
 	}
 	
 	@Test
-	void testCheck4()
+	void testCheck5()
 	{
 		PasswordChecker pswCheck = new PasswordChecker();
 
@@ -65,7 +79,7 @@ class PasswordCheckerTest {
 	}
 
 	@Test
-	void testCheck5()
+	void testCheck6()
 	{
 		PasswordChecker pswCheck = new PasswordChecker();
 		
