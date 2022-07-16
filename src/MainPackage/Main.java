@@ -9,10 +9,10 @@ public class Main {
 	
 	private static void setUpUI()
 	{
-        jframe = new JFrame();
-
+        jframe = new JFrame("SecureD");
+        
         jframe.getContentPane().setBackground(Color.BLACK);
-        jframe.setTitle("Title");
+        //jframe.setTitle("SecureD");
         jframe.setResizable(true);
 
         GridLayout gridLayout = new GridLayout(0, 2);

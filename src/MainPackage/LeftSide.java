@@ -17,7 +17,7 @@ public class LeftSide {
 	GridBagConstraints gbc = new GridBagConstraints();
 	
 	JTextArea pathNameField = null;
-	JTextField pswField = null, cfrmField = null;
+	JPasswordField  pswField = null, cfrmField = null;
 	
 	boolean doEncrypt;
 	String pathName;
@@ -46,7 +46,7 @@ public class LeftSide {
 		gbc.gridy = 0;
 		panel.add(pswLabel, gbc);
 		
-		pswField = new JTextField(30);
+		pswField = new JPasswordField (30);
 		pswField.setOpaque(false);
 		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
 		pswField.setText("password91");
@@ -83,7 +83,7 @@ public class LeftSide {
 		gbc.gridy = 0;		
 		panel.add(cfrmLabel, gbc);
 		
-		cfrmField = new JTextField(30);
+		cfrmField = new JPasswordField (30);
 		cfrmField.setOpaque(false);
 		cfrmField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
 		cfrmField.setText("password91");
@@ -282,7 +282,7 @@ public class LeftSide {
 	private void executeButtonPressed()
 	{	
 		PasswordChecker pswCk = new PasswordChecker();
-		if(pswCk.check(pswField.getText(), cfrmField.getText()))//if psw follow specification continue otherwise show a pop-up with errorss
+		if(pswCk.check(new String(pswField.getPassword()), new String(cfrmField.getPassword())))//if psw follow specification continue otherwise show a pop-up with errorss
 		{
 			rightInstance.resetPbars();
 			
