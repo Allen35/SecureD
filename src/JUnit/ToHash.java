@@ -1,4 +1,4 @@
-package MainPackage;
+package JUnit;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class ToHash {
 
-	private static String getFileChecksum(MessageDigest digest, File file) throws IOException
+	private String getFileChecksum(MessageDigest digest, File file) throws IOException
 	{
 	  FileInputStream fis = new FileInputStream(file);
 	   
@@ -36,15 +36,15 @@ public class ToHash {
 	   return sb.toString();
 	}
 	
-	private static String hash(String fileName)
+	public String hash(String fileName)
 	{
 		//Use MD5 algorithm
-		MessageDigest md5Digest;
+		MessageDigest SHADigest;
 		try {
-			md5Digest = MessageDigest.getInstance("SHA-512");
+			SHADigest = MessageDigest.getInstance("SHA-512");
 
 			//Get the checksum
-			String checksum = getFileChecksum(md5Digest, new File(fileName));
+			String checksum = getFileChecksum(SHADigest, new File(fileName));
 			 
 			return checksum;
 		} catch (Exception e) {
@@ -54,19 +54,4 @@ public class ToHash {
 		return null;
 		 
 	}
-	
-	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, FileNotFoundException, IOException {
-        // TODO code application logic here
-
-        // The name of the file to open.
-        String fileName1 = "C:\\Users\\marco\\Desktop\\Akeno1.xcf";
-        String fileName2 = "C:\\Users\\marco\\Desktop\\Akeno.xcf";
-
-        String hash1 = hash(fileName1);
-        String hash2 = hash(fileName2);
-        
-        System.out.println("Hash1: " + hash1);
-        System.out.println("Hash2: " + hash2);
-        System.out.println("Sono uguali: " + hash1.equals(hash2));
-    }
 }

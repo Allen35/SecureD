@@ -11,6 +11,8 @@ public enum EncryptMain {
 	private static String INPUT_FILE_PATH = "", INPUT_ZIP_PATH = ""; 
 	public static boolean firstTime = true, encrypt = true, isFile = true;
 	
+	protected final boolean callback = true;
+	
     protected final int buffer_size = (int) (2048*4);
     private int thread_num = 8;
     
@@ -75,7 +77,7 @@ public enum EncryptMain {
 			{
 				public void run()
 				{
-					new MultiThreadAES().AesEncryption(thread_num, buffer_size, new File(INPUT_FILE_PATH), INPUT_FILE_PATH + ".aes", secretKey, pBar2, isFile);
+					new MultiThreadAES().AesEncryption(thread_num, buffer_size, new File(INPUT_FILE_PATH), INPUT_FILE_PATH + ".aes", secretKey, pBar2, isFile, callback);
 				}
 			};
 			t1.start();

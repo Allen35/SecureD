@@ -10,6 +10,8 @@ public enum DecryptMain {
 	
 	private static String INPUT_PATH = "", OUTPUT_PATH = ""; 
 	public static boolean firstTime = true, decrypt = true, unzip = true;
+
+    private final boolean callback = EncryptMain.Instance.callback;
 	
     private final int buffer_size = EncryptMain.Instance.buffer_size;
     
@@ -53,7 +55,7 @@ public enum DecryptMain {
 			{
 				public void run()
 				{
-					new MultiThreadAES().AesDecryption(secretKey, new File(INPUT_PATH), new File(OUTPUT_PATH), buffer_size, pBar2);
+					new MultiThreadAES().AesDecryption(secretKey, new File(INPUT_PATH), new File(OUTPUT_PATH), buffer_size, pBar2, callback);
 				}
 			};
 			t1.start();
