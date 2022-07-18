@@ -12,7 +12,7 @@ class MultiThreadAESTest {
 
 	@Test
 	void testAES1() {
-	    int buffer_size = (int) (1024*0.5);
+	    int buffer_size = (int) (1024*1);
 	    int thread_num = 1;
 	    
 	    String secretKey = "boooooooooom!!!!";
