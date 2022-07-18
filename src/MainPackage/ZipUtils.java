@@ -37,11 +37,6 @@ public class ZipUtils implements Runnable
         
         this.pBar = pBar;
     }
-
-    private String getSourceFolder(String file)
-    {
-		return file.substring(0, file.lastIndexOf("\\") + 1);
-    }
     
 	@Override
 	public void run() {

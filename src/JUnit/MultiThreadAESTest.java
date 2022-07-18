@@ -12,16 +12,18 @@ class MultiThreadAESTest {
 
 	@Test
 	void testAES1() {
-	    int buffer_size = (int) (2048*4);
-	    int thread_num = 8;
+	    int buffer_size = (int) (1024*0.5);
+	    int thread_num = 1;
 	    
 	    String secretKey = "boooooooooom!!!!";
 
 	    boolean isFile = true;
 		
-		String fileInputEncr = "C:\\Users\\marco\\Desktop\\07c. Refactoring.pdf";
-		String fileEncr = "C:\\Users\\marco\\Desktop\\07c. Refactoring.pdf.aes";
-		String fileDecr = "C:\\Users\\marco\\Desktop\\07c. Refactoring(Decr).pdf";
+		String userName = System.getProperty("user.name");
+
+		String fileInputEncr = "C:\\Users\\" + userName +  "\\Desktop\\hhh\\bigFile.xcf";
+		String fileEncr = "C:\\Users\\" + userName + "\\Desktop\\bigFile.xcf.aes";
+		String fileDecr = "C:\\Users\\" + userName + "\\Desktop\\bigFile(Decr).xcf";
 		
 		Thread t1 = new Thread()
 		{
@@ -51,13 +53,13 @@ class MultiThreadAESTest {
 			e.printStackTrace();
 		}
 		
-		String hash1 = new ToHash().hash(fileInputEncr);
+		/*String hash1 = new ToHash().hash(fileInputEncr);
 		String hash2 = new ToHash().hash(fileDecr);
 		
 		System.out.println("Hash: " + hash1);
 		System.out.println("Hash: " + hash2);
 
-		assertEquals(true, hash1.equals(hash2));
+		assertEquals(true, hash1.equals(hash2));*/
 	}
 
 }
