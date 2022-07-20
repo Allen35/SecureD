@@ -12,7 +12,6 @@ public class Main {
         jframe = new JFrame("SecureD");
         
         jframe.getContentPane().setBackground(Color.BLACK);
-        //jframe.setTitle("SecureD");
         jframe.setResizable(true);
 
         GridLayout gridLayout = new GridLayout(0, 2);

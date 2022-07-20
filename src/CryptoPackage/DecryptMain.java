@@ -1,4 +1,4 @@
-package MainPackage;
+package CryptoPackage;
 import java.io.File;
 
 import javax.swing.JProgressBar;

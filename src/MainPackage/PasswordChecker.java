@@ -2,7 +2,7 @@ package MainPackage;
 
 public class PasswordChecker {
 
-	private String Alphabet = null, Numbers = null;
+	private String Alphabet = null, AlphabetCaps = null, Numbers = null;
 	
 	public PasswordChecker()
 	{
@@ -16,15 +16,19 @@ public class PasswordChecker {
 	    for(char i = 'a'; i <= 'z'; i++)
 	    {
 	        sb.append(i);
-	    }
+	    }	    
+	    Alphabet = sb.toString();
+	    
+	    sb.delete(0, 26);
+
 	    for(char i = 'A'; i <= 'Z'; i++)
 	    {
 	        sb.append(i);
 	    }
-	    Alphabet = sb.toString();
-	    
-	    sb.delete(0, 52);
-	    
+	    AlphabetCaps = sb.toString();
+
+	    sb.delete(0, 26);
+
 	    for(int i = 0; i <= 9; i++)
 	    {
 	        sb.append(i);
@@ -43,13 +47,16 @@ public class PasswordChecker {
 				if(checkAlphabet(psw1, i))//check if there is a letter
 					letters = true;
 				
+				if(checkAlphabetCaps(psw1, i))//check if there is a capital letter
+					letters = true;
+				
 				if(checkNumbers(psw1, i))//check if there is a number
 					numbers = true;
 				
 				if(letters && numbers)//if yes return true
 					return true;
 			}
-			return false;//if at the end of the cycle there isn't atleast a letter and a number return false
+			return false;//if at the end of the cycle there isn't atleast a letter, a capital letter and a number return false
 			
 		}
 		else
@@ -61,9 +68,20 @@ public class PasswordChecker {
 	
 	private boolean checkAlphabet(String psw, int index)
 	{		
-		for(int j = 0; j < 52; j++)
+		for(int j = 0; j < 26; j++)
 		{
 			if(psw.charAt(index) == Alphabet.charAt(j))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean checkAlphabetCaps(String psw, int index)
+	{		
+		for(int j = 0; j < 26; j++)
+		{
+			if(psw.charAt(index) == AlphabetCaps.charAt(j))
 				return true;
 		}
 		

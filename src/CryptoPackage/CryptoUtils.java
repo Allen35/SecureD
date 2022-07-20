@@ -1,4 +1,4 @@
-package MainPackage;
+package CryptoPackage;
 
 import org.apache.commons.lang3.StringUtils;
 

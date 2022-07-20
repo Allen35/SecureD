@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.jupiter.api.Test;
 
-import MainPackage.MultiThreadAES;
+import CryptoPackage.MultiThreadAES;
 
 class MultiThreadAESTest {
 
@@ -53,13 +53,13 @@ class MultiThreadAESTest {
 			e.printStackTrace();
 		}
 		
-		/*String hash1 = new ToHash().hash(fileInputEncr);
+		String hash1 = new ToHash().hash(fileInputEncr);
 		String hash2 = new ToHash().hash(fileDecr);
 		
 		System.out.println("Hash: " + hash1);
 		System.out.println("Hash: " + hash2);
 
-		assertEquals(true, hash1.equals(hash2));*/
+		assertEquals(true, hash1.equals(hash2));
 	}
 
 }

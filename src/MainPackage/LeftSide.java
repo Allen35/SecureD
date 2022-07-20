@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
+import CryptoPackage.DecryptMain;
+import CryptoPackage.EncryptMain;
+
 public class LeftSide {
 
 	private static LeftSide self = null;

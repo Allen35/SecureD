@@ -77,16 +77,30 @@ class PasswordCheckerTest {
 		
 		assertEquals(false, result);
 	}
-
+	
 	@Test
 	void testCheck6()
+	{
+		PasswordChecker pswCheck = new PasswordChecker();
+
+		/***
+		 * case password without letters
+		 */
+		String psw1 = "PASSWORD", psw2 = "PASSWORD";
+		boolean result = pswCheck.check(psw1, psw2);
+		
+		assertEquals(false, result);
+	}
+
+	@Test
+	void testCheck7()
 	{
 		PasswordChecker pswCheck = new PasswordChecker();
 		
 		/***
 		 * case correct password
 		 */
-		String psw1 = "password123", psw2 = "password123";
+		String psw1 = "Password123", psw2 = "Password123";
 		boolean result = pswCheck.check(psw1, psw2);
 		
 		assertEquals(true, result);

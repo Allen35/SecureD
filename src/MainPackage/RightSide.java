@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.EmptyBorder;
 
+import CryptoPackage.DecryptMain;
+import CryptoPackage.EncryptMain;
+
 public class RightSide {
     
 	private static RightSide self = null;
