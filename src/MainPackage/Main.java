@@ -17,13 +17,15 @@ public class Main {
         GridLayout gridLayout = new GridLayout(0, 2);
         jframe.setLayout(gridLayout);
         gridLayout.layoutContainer(jframe);
-        
+                
         JPanel leftPanel = new JPanel();
-        LeftSide leftSide = LeftSide.LeftSideInitializer(leftPanel);
+        //LeftSide leftSide = LeftSide.LeftSideInitializer(leftPanel);
+        LeftSide leftSide = new LeftSide(leftPanel);
         jframe.add(leftPanel);
         
         JPanel rightPanel = new JPanel();
-        RightSide rightSide = RightSide.RightSideInitializer(rightPanel);
+        //RightSide rightSide = RightSide.RightSideInitializer(rightPanel);
+        RightSide rightSide = new RightSide(rightPanel);
         jframe.add(rightPanel);
 
         leftSide.getRightInstance(rightSide);
@@ -36,6 +38,6 @@ public class Main {
 	public static void main(String[] args) throws Exception
 	{	
 		setUpUI();
-        ErrorPopUp.Instance.setMainFrame(jframe);
+        //ErrorPopUp.Instance.setMainFrame(jframe);
 	}
 }

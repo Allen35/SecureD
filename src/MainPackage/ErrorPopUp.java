@@ -1,6 +1,9 @@
 package MainPackage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
+import com.formdev.flatlaf.FlatDarkLaf;
 
 public enum ErrorPopUp 
 {
@@ -14,6 +17,11 @@ public enum ErrorPopUp
 	
     public void showPopUp(String msg)
     {
-        JOptionPane.showMessageDialog(MainFrame, msg);
+		try {
+		    UIManager.setLookAndFeel( new FlatDarkLaf() );
+		} catch( Exception ex ) {
+		    System.err.println( "Failed to initialize LaF" );
+		}
+		JOptionPane.showMessageDialog(MainFrame, msg);
     }
 }

@@ -14,9 +14,8 @@ import CryptoPackage.EncryptMain;
 
 public class LeftSide {
 
-	private static LeftSide self = null;
 	private RightSide rightInstance = null;
-	
+		
 	GridBagConstraints gbc = new GridBagConstraints();
 	
 	JTextArea pathNameField = null;
@@ -51,7 +50,7 @@ public class LeftSide {
 		
 		pswField = new JPasswordField (30);
 		pswField.setOpaque(false);
-		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
+		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici, con maiuscole e minuscole");
 		pswField.setText("password91");
 
 
@@ -88,7 +87,7 @@ public class LeftSide {
 		
 		cfrmField = new JPasswordField (30);
 		cfrmField.setOpaque(false);
-		cfrmField.setToolTipText("Password di almeno 8 caratteri alfanumerici");
+		cfrmField.setToolTipText("Password di almeno 8 caratteri alfanumerici, con maiuscole e minuscole");
 		cfrmField.setText("password91");
 
 
@@ -284,24 +283,10 @@ public class LeftSide {
 	
 	private void executeButtonPressed()
 	{	
-		PasswordChecker pswCk = new PasswordChecker();
-		if(pswCk.check(new String(pswField.getPassword()), new String(cfrmField.getPassword())))//if psw follow specification continue otherwise show a pop-up with errorss
-		{
-			rightInstance.resetPbars();
-			
-			if(doEncrypt)
-			{
-				EncryptMain.Instance.starter(pathName, pswField.getText());
-			}
-			else
-			{
-				DecryptMain.Instance.starter(pathName, pswField.getText());
-			}
-		}
-		else
-		{
-			ErrorPopUp.Instance.showPopUp("Password scorretta, controlla i suggerimenti!");
-		}
+		rightInstance.resetPbars();
+		
+		EventDriver eventDriver = EventDriver.newInstance();
+		eventDriver.initializer(new String(pswField.getPassword()), new String(cfrmField.getPassword()), pathName, doEncrypt, true);
 	}
 	
 	private void sixthRow(JPanel leftPanel)
@@ -326,7 +311,7 @@ public class LeftSide {
 		leftPanel.add(button, gbc);
 	}
 	
-	private LeftSide(JPanel leftPanel)
+	public LeftSide(JPanel leftPanel)
 	{
 		try {
 		    UIManager.setLookAndFeel( new FlatDarkLaf() );
@@ -350,17 +335,6 @@ public class LeftSide {
         
         fifthRow(leftPanel);
         
-        sixthRow(leftPanel);
+        sixthRow(leftPanel);        
    	}
-	
-	public static LeftSide LeftSideInitializer(JPanel leftPanel)
-	{
-		if(self == null)
-		{
-			self = new LeftSide(leftPanel);
-			return self;
-		}
-		else
-			return null;
-	}
 }

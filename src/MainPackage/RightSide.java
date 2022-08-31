@@ -93,7 +93,7 @@ public class RightSide {
      	rightPanel.add(panel, gbc);
 	}
 	
-	private RightSide(JPanel rightPanel)
+	public RightSide(JPanel rightPanel)
 	{
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -104,21 +104,15 @@ public class RightSide {
 		
 		circPBarCrypto(rightPanel);
 		
-		EncryptMain.Instance.setPBar1(progressZip);
+		/*EncryptMain.Instance.setPBar1(progressZip);
 		EncryptMain.Instance.setPBar2(progressCrypto);
 		
 		DecryptMain.Instance.setPBar1(progressCrypto);
-		DecryptMain.Instance.setPBar2(progressZip);
+		DecryptMain.Instance.setPBar2(progressZip);*/
+		
+		EventDriver eventDriver = EventDriver.newInstance();
+		
+		eventDriver.setCryptoBar(progressCrypto);
+		eventDriver.setZipBar(progressZip);
     }
-	
-	public static RightSide RightSideInitializer(JPanel rightPanel)
-	{
-		if(self == null)
-		{
-			self = new RightSide(rightPanel);
-			return self;
-		}
-		else
-			return null;
-	}
 }

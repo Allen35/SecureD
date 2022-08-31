@@ -17,28 +17,15 @@ public enum EncryptMain {
     private int thread_num = 8;
     
     private String secretKey = "boooooooooom!!!!";
-    
-	public void setPBar2(JProgressBar pBar)
-	{
-		if(pBar2 != null)
-			return;
-		else
-			this.pBar2 = pBar;
-	}
-    
-	public void setPBar1(JProgressBar pBar)
-	{
-		if(pBar1 != null)
-			return;
-		else
-			this.pBar1 = pBar;
-	}
 	
-	public void starter(String INPUT_FILE, String password)
+	public void starter(String INPUT_FILE, String password, JProgressBar pBar1, JProgressBar pBar2)
 	{
 		INPUT_FILE_PATH = INPUT_FILE;
 		secretKey = password;
 
+		this.pBar1 = pBar1;
+		this.pBar2 = pBar2;
+		
 		EncryptDriver();
 	}
 
