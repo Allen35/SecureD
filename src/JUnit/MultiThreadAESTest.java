@@ -13,15 +13,15 @@ class MultiThreadAESTest {
 	@Test
 	void testAES1() {
 	    int buffer_size = (int) (1024*1);
-	    int thread_num = 1;
+	    int thread_num = 4;
 	    
-	    String secretKey = "boooooooooom!!!!";
+	    String secretKey = "password123";
 
 	    boolean isFile = true;
 		
 		String userName = System.getProperty("user.name");
 
-		String fileInputEncr = "C:\\Users\\" + userName +  "\\Desktop\\hhh\\bigFile.xcf";
+		String fileInputEncr = "C:\\Users\\" + userName +  "\\Desktop\\bigFile.xcf";
 		String fileEncr = "C:\\Users\\" + userName + "\\Desktop\\bigFile.xcf.aes";
 		String fileDecr = "C:\\Users\\" + userName + "\\Desktop\\bigFile(Decr).xcf";
 		
