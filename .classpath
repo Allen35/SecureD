@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Icons"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-16">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/commons-lang3-3.12.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/flatlaf-2.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/jna-5.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/jna-platform-5.11.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/uispec4j-2.5-RC1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/sikulixapi-2.0.5-win.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marco/eclipse-workspace/SecureD/Libraries/flatlaf-3.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

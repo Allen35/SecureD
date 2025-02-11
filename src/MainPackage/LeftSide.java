@@ -7,10 +7,6 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-
-import CryptoPackage.DecryptMain;
-import CryptoPackage.EncryptMain;
 
 public class LeftSide {
 
@@ -24,7 +20,7 @@ public class LeftSide {
 	boolean doEncrypt;
 	String pathName;
 
-	public void getRightInstance(RightSide instance)
+	public void setRightInstance(RightSide instance)
 	{
 		rightInstance = instance;
 	}
@@ -52,6 +48,8 @@ public class LeftSide {
 		pswField.setOpaque(false);
 		pswField.setToolTipText("Password di almeno 8 caratteri alfanumerici, con maiuscole e minuscole");
 		pswField.setText("password91");
+		
+		pswField.setName("pswField");
 
 
 		gbc.weighty = 0.1;
@@ -122,15 +120,19 @@ public class LeftSide {
 		
 		JButton button1 = null;
 		try {
-			button1 = new JButton(new ImageIcon(((new ImageIcon("Icons/lock.png")).getImage()).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH)));
+			button1 = new JButton(new ImageIcon(((new ImageIcon("C:\\Users\\" + System.getProperty("user.name") + "\\eclipse-workspace\\SecureD\\Icons\\lock.png")).getImage()).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH)));
 		} catch (Exception ex) {
 			System.out.println("Aggiunta immagine ai bottoni fallita "+ex);
 		}
+		button1.setText("Encryption");
 		button1.setBackground(new Color(0,0,0));
 		button1.addActionListener(new ActionListener()//set up action listener to open windows file chooser
 				{
 					public void actionPerformed(ActionEvent e)
 					{
+						rightInstance.setJLabel1("Avanzamento compressione:");
+						rightInstance.setJLabel2("Avanzamento cifratura:");
+						
 						doEncrypt = true;
 						openFileExplorer();
 					}
@@ -138,8 +140,8 @@ public class LeftSide {
 			);
 		//button1.setBorder(new EmptyBorder(0, 0, 0, 20));
 		//button1.setBorder(BorderFactory.createLineBorder(Color.CYAN,1));
-		JLabel encryption = new JLabel("Encryption");
-		encryption.setForeground(Color.WHITE);
+		//JLabel encryption = new JLabel("Encryption");
+		//encryption.setForeground(Color.WHITE);
 		
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -150,7 +152,7 @@ public class LeftSide {
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		panel1.add(encryption, gbc);
+		//panel1.add(encryption, gbc);
 		panel1.setBorder(new EmptyBorder(0, 0, 0, 20));
 		
 		return panel1;
@@ -164,15 +166,19 @@ public class LeftSide {
 		
 		JButton button2 = null;
 		try {
-			button2 = new JButton(new ImageIcon(((new ImageIcon("Icons/decryption.jpg")).getImage()).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH)));
+			button2 = new JButton(new ImageIcon(((new ImageIcon("C:\\Users\\" + System.getProperty("user.name") + "\\eclipse-workspace\\SecureD\\Icons\\decryption.jpg")).getImage()).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH)));
 		} catch (Exception ex) {
 		  System.out.println(ex);
 		}
+		button2.setText("Decryption");
 		button2.setBackground(new Color(0,0,0));
 		button2.addActionListener(new ActionListener()//set up action listener to open windows file chooser
 				{
 					public void actionPerformed(ActionEvent e)
 					{
+						rightInstance.setJLabel1("Avanzamento cifratura:");
+						rightInstance.setJLabel2("Avanzamento compressione:");
+
 						doEncrypt = false;
 						openFileExplorer();
 					}
@@ -180,8 +186,8 @@ public class LeftSide {
 			);
 		//button2.setBorder(new EmptyBorder(0, 20, 0, 0));
 		//button2.setBorder(BorderFactory.createLineBorder(Color.CYAN,1));
-		JLabel decryption = new JLabel("Decryption");
-		decryption.setForeground(Color.WHITE);
+		//JLabel decryption = new JLabel("Decryption");
+		//decryption.setForeground(Color.WHITE);
 		
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
@@ -192,7 +198,7 @@ public class LeftSide {
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 1;
-		panel2.add(decryption, gbc);
+		//panel2.add(decryption, gbc);
 		panel2.setBorder(new EmptyBorder(0, 20, 0, 0));
 		
 		return panel2;
@@ -313,11 +319,6 @@ public class LeftSide {
 	
 	public LeftSide(JPanel leftPanel)
 	{
-		try {
-		    UIManager.setLookAndFeel( new FlatDarkLaf() );
-		} catch( Exception ex ) {
-		    System.err.println( "Failed to initialize LaF" );
-		}
 		
 		leftPanel.setLayout(new GridBagLayout());
         gbc.anchor = GridBagConstraints.CENTER;

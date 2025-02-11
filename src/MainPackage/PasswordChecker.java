@@ -38,25 +38,26 @@ public class PasswordChecker {
 	
 	public boolean check(String psw1, String psw2)
 	{
-		boolean numbers = false, letters = false;
+		boolean numbers = false, letters = false, lettersCaps = false;
+		int psw1L = psw1.length(), psw2L = psw2.length();
 		
-		if(psw1.length() == psw2.length() && psw1.equals(psw2) && psw1.length() >= 8 && psw1.length() < 65)//if both psw are same length, if length of psw in greater than 8 and if both psw are equal
+		if(psw1L == psw2L && psw1L >= 8 && psw1L < 65  && psw1.equals(psw2))//if both psw are same length, if length of psw in greater than 8 and if both psw are equal
 		{
-			for(int i = 0; i < psw1.length(); i++)//check if inside psw there are atleast a letter and a number
+			for(int i = 0; i < psw1.length(); i++)//check if inside psw there are at least an upper case letter, a lower case letter and a number
 			{
 				if(checkAlphabet(psw1, i))//check if there is a letter
 					letters = true;
 				
 				if(checkAlphabetCaps(psw1, i))//check if there is a capital letter
-					letters = true;
+					lettersCaps = true;
 				
 				if(checkNumbers(psw1, i))//check if there is a number
 					numbers = true;
 				
-				if(letters && numbers)//if yes return true
+				if(letters && lettersCaps && numbers)//if yes return true
 					return true;
 			}
-			return false;//if at the end of the cycle there isn't atleast a letter, a capital letter and a number return false
+			return false;//if at the end of the cycle there isn't at least a letter, a capital letter and a number return false
 			
 		}
 		else

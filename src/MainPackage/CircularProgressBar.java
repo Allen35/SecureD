@@ -18,7 +18,7 @@ class CircularProgressBar extends BasicProgressBarUI
 	@Override 
 	public Dimension getPreferredSize(JComponent c) 
 	{
-		double sizeMultiplier = 1.6;//<----------------------------------------- QUA MODIFICHI LA GRANDEZZA
+		double sizeMultiplier = 1.6;//<----------------------------------------- CHANGE THE SIZE HERE
 		Dimension d = super.getPreferredSize(c);
 		int v = (int) Math.max(d.width*sizeMultiplier, d.height*sizeMultiplier);
 		d.setSize(v, v);

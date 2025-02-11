@@ -8,14 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.EmptyBorder;
 
-import CryptoPackage.DecryptMain;
-import CryptoPackage.EncryptMain;
 
 public class RightSide {
-    
-	private static RightSide self = null;
-	
+    	
     JProgressBar progressCrypto, progressZip;
+    JLabel jLabel1, jLabel2;
 
 	GridBagConstraints gbc = new GridBagConstraints();
 
@@ -23,6 +20,16 @@ public class RightSide {
 	{
 		progressZip.setValue(0);
 		progressCrypto.setValue(0);
+	}
+	
+	public void setJLabel1(String s)
+	{
+		jLabel1.setText(s);		
+	}
+	
+	public void setJLabel2(String s)
+	{
+		jLabel2.setText(s);
 	}
 	
 	public void circPBarZip(JPanel rightPanel)
@@ -33,16 +40,16 @@ public class RightSide {
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
-		JLabel jlabel = new JLabel("Avanzamento compressione:");
-		jlabel.setForeground(Color.CYAN);
-		jlabel.setBorder(new EmptyBorder(0, 0, 10, 0));
+		jLabel1 = new JLabel("Avanzamento compressione:");
+		jLabel1.setForeground(Color.CYAN);
+		jLabel1.setBorder(new EmptyBorder(0, 0, 10, 0));
 		//panel.setBackground(new Color(0,0,0,0));
 
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		panel.add(jlabel, gbc);
+		panel.add(jLabel1, gbc);
 		
 		progressZip = new CircularProgressBar().makeProgressBar(Color.CYAN);
 		progressZip.setOpaque(false);
@@ -68,15 +75,15 @@ public class RightSide {
 		
         gbc.anchor = GridBagConstraints.CENTER;
 
-		JLabel jlabel = new JLabel("Avanzamento cifratura:");
-		jlabel.setForeground(Color.CYAN);
-		jlabel.setBorder(new EmptyBorder(20, 0, 10, 0));
+        jLabel2 = new JLabel("Avanzamento cifratura:");
+        jLabel2.setForeground(Color.CYAN);
+        jLabel2.setBorder(new EmptyBorder(20, 0, 10, 0));
 
 		gbc.weighty = 0.1;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		panel.add(jlabel, gbc);
+		panel.add(jLabel2, gbc);
 		
 		progressCrypto = new CircularProgressBar().makeProgressBar(Color.CYAN);
      	
@@ -95,6 +102,7 @@ public class RightSide {
 	
 	public RightSide(JPanel rightPanel)
 	{
+		
         gbc.anchor = GridBagConstraints.CENTER;
 
 		rightPanel.setLayout(new GridBagLayout());

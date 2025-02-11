@@ -43,7 +43,7 @@ public class EventDriver {
 		
 		PasswordChecker pswCk = new PasswordChecker();
 		
-		if(pswCk.check(new String(password), new String(cnfrmPassword)))//if psw follow specification continue otherwise show a pop-up with errorss
+		if(pswCk.check(password, cnfrmPassword))//if psw follow specification continue otherwise show a pop-up with errors
 		{
 			this.psw = password;
 			this.pathName = filePath;

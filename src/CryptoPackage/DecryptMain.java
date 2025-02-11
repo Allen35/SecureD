@@ -30,13 +30,13 @@ public enum DecryptMain {
 	
 	public void DecryptDriver()
 	{
-		if(decrypt)//at this point i always have a file tp decrypt
+    	if(decrypt)//at this point i always have a file tp decrypt
 		{
 			decrypt = false;
 			
 			OUTPUT_PATH = removeExtension(INPUT_PATH);
 			
-	    	//System.out.println("INPUT_PATH: " + INPUT_PATH + "   OUTPUT_PATH: " + OUTPUT_PATH);
+	    	System.out.println("INPUT_PATH: " + INPUT_PATH + "   OUTPUT_PATH: " + OUTPUT_PATH);
 
 			Thread t1 = new Thread()
 			{

@@ -13,9 +13,9 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 		
 		/***
-		 * case different password
+		 * case insufficient length
 		 */
-		String psw1 = "password91", psw2 = "password9";
+		String psw1 = "passw91", psw2 = "passw91";
 		boolean result = pswCheck.check(psw1, psw2);
 		 
 		assertEquals(false, result);
@@ -28,9 +28,9 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
-		 * case password with letters and numbers but insufficient length
+		 * case excessive length
 		 */
-		String psw1 = "pass123", psw2 = "pass123";
+		String psw1 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword", psw2 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword";
 		boolean result = pswCheck.check(psw1, psw2);
 		
 		assertEquals(false, result);
@@ -42,9 +42,9 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
-		 * case password excessive length
+		 * case no lower case letters
 		 */
-		String psw1 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword", psw2 = "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword";
+		String psw1 = "PASSWORD9", psw2 = "PASSWORD9";
 		boolean result = pswCheck.check(psw1, psw2);
 		
 		assertEquals(false, result);
@@ -56,7 +56,7 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
-		 * case password without numbers
+		 * case no upper case letters
 		 */
 		String psw1 = "password", psw2 = "password";
 		boolean result = pswCheck.check(psw1, psw2);
@@ -70,9 +70,9 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
-		 * case password without letters
+		 * case password without numbers
 		 */
-		String psw1 = "01234567", psw2 = "01234567";
+		String psw1 = "Password", psw2 = "Password";
 		boolean result = pswCheck.check(psw1, psw2);
 		
 		assertEquals(false, result);
@@ -84,9 +84,9 @@ class PasswordCheckerTest {
 		PasswordChecker pswCheck = new PasswordChecker();
 
 		/***
-		 * case password without letters
+		 * case unequal password
 		 */
-		String psw1 = "PASSWORD", psw2 = "PASSWORD";
+		String psw1 = "Password99", psw2 = "Password98";
 		boolean result = pswCheck.check(psw1, psw2);
 		
 		assertEquals(false, result);
